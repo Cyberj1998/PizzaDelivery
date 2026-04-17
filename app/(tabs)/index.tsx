@@ -1,4 +1,5 @@
-import { FlatList, ListRenderItem, StyleSheet, View } from "react-native";
+import { FlatList, ListRenderItem, StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import ProductCard from "../../components/ProductCard";
 import products from "../../constants/products";
 
@@ -16,14 +17,16 @@ export default function HomeScreen() {
   );
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <FlatList
-        style={styles.flatLiist}
+        style={styles.flatList}
         data={products}
         renderItem={renderProductItem}
         keyExtractor={(item) => item.id}
+        numColumns={2}
+        contentContainerStyle={styles.flatListContentContainer}
       />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -33,12 +36,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "white",
-    borderWidth: 2,
-    borderColor: "red",
   },
-  flatLiist: {
-    borderWidth: 2,
-    borderColor: "blue",
+  flatList: {
     width: "100%",
+    flexWrap: "wrap",
+  },
+  flatListContentContainer: {
+    paddingHorizontal: 8,
+    justifyContent: "center",
   },
 });
