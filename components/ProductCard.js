@@ -1,9 +1,13 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import useCartStore from "../store/CartSlice";
 
 export default function ProductCard({ item }) {
-  const handleAddToCart = () => {
-    alert("hola!");
+  const addToCart = useCartStore((state) => state.addToCart);
+
+  const handleAddToCart = (item) => {
+    addToCart(item);
+    console.log(item);
   };
 
   return (
@@ -13,9 +17,14 @@ export default function ProductCard({ item }) {
         <Text style={styles.productName} numberOfLines={2}>
           {item.name}
         </Text>
-        <Text style={styles.productPrice}>${item.price}</Text>
-        <Image style={styles.categoryIcon} source={item.categoryIcon} />
-        <TouchableOpacity style={styles.addButton} onPress={handleAddToCart}>
+        <View style={styles.priceCategoryContainer}>
+          <Text style={styles.productPrice}>$: {item.price}</Text>
+          <Image style={styles.categoryIcon} source={item.categoryIcon} />
+        </View>
+        <TouchableOpacity
+          style={styles.addButton}
+          onPress={() => handleAddToCart(item)}
+        >
           <Text style={styles.addButtonText}>Add to Cart</Text>
         </TouchableOpacity>
       </View>
@@ -25,7 +34,7 @@ export default function ProductCard({ item }) {
 
 const styles = StyleSheet.create({
   productCard: {
-    backgroundColor: "#ffffff",
+    backgroundColor: "#eeeeee",
     borderRadius: 12,
     marginHorizontal: 10,
     marginVertical: 8,
@@ -45,6 +54,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   productImage: {
+    margin: 5,
     width: "100%",
     height: 150,
     resizeMode: "contain",
@@ -63,8 +73,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "600",
     color: "#007bff",
-    borderWidth: 1,
-    borderColor: "red",
   },
   addButton: {
     backgroundColor: "#48d769",
@@ -82,8 +90,14 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   categoryIcon: {
-    height: 20,
-    width: 20,
+    height: 25,
+    width: 25,
     resizeMode: "contain",
+  },
+  priceCategoryContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 });

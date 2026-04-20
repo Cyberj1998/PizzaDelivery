@@ -8,7 +8,11 @@ import Pizza4 from "../assets/images/pizza-4.png";
 
 //------------category icons
 
-import { default as PizzaIcon, default as Test } from "../assets/images/pizza.svg";
+//import drinkIcon from '../assets/images/icons/drink.png'
+//import dessert from '../assets/images/icons/dessert.png'
+import burger from "../assets/images/icons/burger.png";
+import pizza from "../assets/images/icons/pizza.png";
+//import food from '../assets/images/icons/food.png'
 
 const products = [
   {
@@ -18,7 +22,7 @@ const products = [
     description:
       "Classic pizza with fresh mozzarella, basil, and a rich tomato sauce.",
     image: Pizza1,
-    categoryIcon: Test,
+    categoryIcon: pizza,
   },
   {
     id: "pizza_002",
@@ -27,7 +31,7 @@ const products = [
     description:
       "A crowd-pleaser with generous slices of spicy pepperoni and melted cheese.",
     image: Pizza2,
-    categoryIcon: PizzaIcon,
+    categoryIcon: pizza,
   },
   {
     id: "pizza_003",
@@ -36,7 +40,7 @@ const products = [
     description:
       "A colorful medley of fresh vegetables like bell peppers, onions, mushrooms, and olives.",
     image: Pizza3,
-    categoryIcon: PizzaIcon,
+    categoryIcon: pizza,
   },
   {
     id: "pizza_004",
@@ -45,7 +49,7 @@ const products = [
     description:
       "Tangy BBQ sauce base topped with grilled chicken, red onions, and cilantro.",
     image: Pizza4,
-    categoryIcon: PizzaIcon,
+    categoryIcon: pizza,
   },
 
   //----------------------
@@ -56,6 +60,7 @@ const products = [
     description:
       "Triple-decker sandwich with roasted turkey, crispy bacon, lettuce, tomato, and mayo.",
     image: Burger1,
+    categoryIcon: burger,
   },
   {
     id: "sandwich_002",
@@ -64,6 +69,7 @@ const products = [
     description:
       "A hearty sub piled high with salami, ham, provolone cheese, lettuce, tomato, and an Italian dressing.",
     image: Burger2,
+    categoryIcon: burger,
   },
   {
     id: "sandwich_003",
@@ -72,6 +78,7 @@ const products = [
     description:
       "Grilled ciabatta with fresh mozzarella, ripe tomatoes, basil pesto, and a balsamic glaze.",
     image: Burger3,
+    categoryIcon: burger,
   },
 ];
 
