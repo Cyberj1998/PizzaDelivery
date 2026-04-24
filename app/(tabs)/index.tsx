@@ -51,19 +51,19 @@ export default function HomeScreen() {
       image: pizza,
     },
     {
-      category: "burgers",
+      category: "burger",
       image: burger,
     },
     {
-      category: "drinks",
+      category: "bebida",
       image: drinkIcon,
     },
     {
-      category: "desserts",
+      category: "postre",
       image: dessert,
     },
     {
-      category: "meals",
+      category: "completa",
       image: food,
     },
   ];

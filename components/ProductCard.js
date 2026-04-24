@@ -2,6 +2,14 @@ import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import useCartStore from "../store/CartSlice";
 
+//-----------------icons
+
+import burger from "../assets/images/icons/burger.png";
+import postre from "../assets/images/icons/dessert.png";
+import bebida from "../assets/images/icons/drink.png";
+import completa from "../assets/images/icons/food.png";
+import pizza from "../assets/images/icons/pizza.png";
+
 export default function ProductCard({ item }) {
   const addToCart = useCartStore((state) => state.addToCart);
 
@@ -19,7 +27,22 @@ export default function ProductCard({ item }) {
         </Text>
         <View style={styles.priceCategoryContainer}>
           <Text style={styles.productPrice}>$: {item.price}</Text>
-          <Image style={styles.categoryIcon} source={item.categoryIcon} />
+          <Image
+            style={styles.categoryIcon}
+            source={
+              item.category === "pizza"
+                ? pizza
+                : item.category === "completa"
+                  ? completa
+                  : item.category === "postre"
+                    ? postre
+                    : item.category === "burger"
+                      ? burger
+                      : item.category === "bebida"
+                        ? bebida
+                        : ""
+            }
+          />
         </View>
         <TouchableOpacity
           style={styles.addButton}

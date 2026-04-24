@@ -81,7 +81,7 @@ const products = [
       "Triple-decker sandwich with roasted turkey, crispy bacon, lettuce, tomato, and mayo.",
     image: Burger1,
     categoryIcon: burger,
-    category: "burgers",
+    category: "burger",
   },
   {
     id: "sandwich_002",
@@ -91,7 +91,7 @@ const products = [
       "A hearty sub piled high with salami, ham, provolone cheese, lettuce, tomato, and an Italian dressing.",
     image: Burger2,
     categoryIcon: burger,
-    category: "burgers",
+    category: "burger",
   },
   {
     id: "sandwich_003",
@@ -101,7 +101,7 @@ const products = [
       "Grilled ciabatta with fresh mozzarella, ripe tomatoes, basil pesto, and a balsamic glaze.",
     image: Burger3,
     categoryIcon: burger,
-    category: "burgers",
+    category: "burger",
   },
   {
     id: "beer_001",
@@ -111,7 +111,7 @@ const products = [
       "Una cerveza lager clásica, refrescante y con un toque de malta equilibrado.",
     image: Drink1,
     categoryIcon: drinkIcon,
-    category: "drinks",
+    category: "bebida",
   },
   {
     id: "beer_002",
@@ -121,7 +121,7 @@ const products = [
       "Cerveza premium con un sabor suave y un aroma floral distintivo.",
     image: Drink3,
     categoryIcon: drinkIcon,
-    category: "drinks",
+    category: "bebida",
   },
   {
     id: "malta_001",
@@ -131,7 +131,7 @@ const products = [
       "Bebida de malta oscura, densa y con un sabor dulce y energético.",
     image: Drink2,
     categoryIcon: drinkIcon,
-    category: "drinks",
+    category: "bebida",
   },
   {
     id: "dessert_001",
@@ -141,7 +141,7 @@ const products = [
       "Bizcocho caliente de chocolate con un centro fundido y una bola de helado de vainilla.",
     image: Dessert1,
     categoryIcon: dessert,
-    category: "desserts",
+    category: "postre",
   },
   {
     id: "dessert_002",
@@ -151,7 +151,7 @@ const products = [
       "Tarta de queso cremosa sobre una base de galleta crujiente, servida con salsa de frutos rojos.",
     image: Dessert2,
     categoryIcon: dessert,
-    category: "desserts",
+    category: "postre",
   },
   {
     id: "dessert_003",
@@ -161,7 +161,7 @@ const products = [
       "Postre italiano tradicional con capas de bizcochos empapados en café y crema de mascarpone.",
     image: Dessert3,
     categoryIcon: dessert,
-    category: "desserts",
+    category: "postre",
   },
   {
     id: "dessert_004",
@@ -171,7 +171,7 @@ const products = [
       "Tarta de manzana casera con canela y una corteza de masa quebrada muy crujiente.",
     image: Dessert4,
     categoryIcon: dessert,
-    category: "desserts",
+    category: "postre",
   },
   {
     id: "dessert_005",
@@ -181,7 +181,7 @@ const products = [
       "Crema suave de vainilla con una capa de azúcar caramelizada crujiente en la parte superior.",
     image: Dessert5,
     categoryIcon: dessert,
-    category: "desserts",
+    category: "postre",
   },
   {
     id: "dessert_006",
@@ -191,7 +191,7 @@ const products = [
       "Brownie de chocolate intenso con trozos de nuez y un toque de sal marina.",
     image: Dessert6,
     categoryIcon: dessert,
-    category: "desserts",
+    category: "postre",
   },
   {
     id: "combo_001",
@@ -201,7 +201,7 @@ const products = [
       "Hamburguesa clásica con queso, patatas fritas crujientes y una bebida refrescante.",
     image: Completa1,
     categoryIcon: food,
-    category: "meals",
+    category: "completa",
   },
   {
     id: "combo_002",
@@ -211,7 +211,7 @@ const products = [
       "Tiras de pollo crujientes, salsa especial, patatas y una bebida a elección.",
     image: Completa2,
     categoryIcon: food,
-    category: "meals",
+    category: "completa",
   },
   {
     id: "combo_003",
@@ -221,7 +221,7 @@ const products = [
       "Costillas bañadas en salsa BBQ, guarnición de ensalada de col y bebida.",
     image: Completa3,
     categoryIcon: food,
-    category: "meals",
+    category: "completa",
   },
   {
     id: "combo_004",
@@ -231,7 +231,7 @@ const products = [
       "Hamburguesa vegetariana de garbanzos, patatas dulces y una bebida natural.",
     image: Completa4,
     categoryIcon: food,
-    category: "meals",
+    category: "completa",
   },
   {
     id: "combo_005",
@@ -241,7 +241,7 @@ const products = [
       "Pizza familiar de varios sabores, acompañamiento de palitroques de ajo y refresco grande.",
     image: Completa5,
     categoryIcon: food,
-    category: "meals",
+    category: "completa",
   },
   {
     id: "combo_006",
@@ -251,7 +251,7 @@ const products = [
       "Pasta con salsa boloñesa casera, pan de ajo y una bebida fría.",
     image: Completa6,
     categoryIcon: food,
-    category: "meals",
+    category: "completa",
   },
   {
     id: "combo_007",
@@ -261,7 +261,7 @@ const products = [
       "Filete de pescado rebozado, patatas fritas tradicionales y una bebida.",
     image: Completa7,
     categoryIcon: food,
-    category: "meals",
+    category: "completa",
   },
 ];
 
