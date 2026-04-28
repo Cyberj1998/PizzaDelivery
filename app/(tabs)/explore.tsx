@@ -27,7 +27,7 @@ export default function TabTwoScreen() {
   const clearCart = useCartStore((state) => state.clearCart);
 
   interface Product {
-    id: string;
+    $id: string;
     name: string;
     price: number;
     description: string;
@@ -133,7 +133,7 @@ export default function TabTwoScreen() {
           style={styles.flatList}
           data={cart}
           renderItem={renderProductItem}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.$id}
           contentContainerStyle={styles.flatListContentContainer}
         />
       )}

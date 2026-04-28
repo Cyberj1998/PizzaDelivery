@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   FlatList,
   Image,
@@ -12,7 +12,12 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ProductCard from "../../components/ProductCard";
-import products from "../../constants/products";
+
+//------------------appwrite credentials
+import { Client, TablesDB } from "react-native-appwrite";
+const APPWRITE_PROJECT_NAME = "delivery";
+const PROJECT_ID = "69eb7dce000baa1aca45";
+const ENDPOINT = "https://nyc.cloud.appwrite.io/v1";
 
 //-----------------images imports
 import burger from "../../assets/images/icons/burger.png";
@@ -25,11 +30,11 @@ import SearchIcon from "../../assets/images/icons/search.png";
 
 export default function HomeScreen() {
   interface Product {
-    id: string;
+    $id: string;
     name: string;
     price: number;
-    description: string;
     image: string;
+    category: string;
   }
 
   const renderProductItem: ListRenderItem<Product> = ({ item }) => (
@@ -70,17 +75,40 @@ export default function HomeScreen() {
 
   const [category, setCategory] = useState("todo");
   const [searchValue, setSearchValue] = useState("");
+  const [productsDatabase, setProductsDatabase] = useState<Product[]>([]);
+
+  const client = new Client().setEndpoint(ENDPOINT).setProject(PROJECT_ID);
+
+  const tablesDB = new TablesDB(client);
+
+  const handleCallRows = () => {
+    let promise = tablesDB.listRows("69eb7f47001393ab2d33", "products");
+
+    promise.then(
+      function (response) {
+        setProductsDatabase(response.rows as unknown as Product[]);
+        console.log(productsDatabase);
+      },
+      function (error) {
+        console.log(error);
+      },
+    );
+  };
+
+  useEffect(() => {
+    handleCallRows();
+  }, []);
 
   const filteredProducts = useMemo(() => {
     const categoryFiltered =
       category === "todo"
-        ? products
-        : products.filter((item) => item.category === category);
+        ? productsDatabase
+        : productsDatabase.filter((item) => item.category === category);
 
     return categoryFiltered.filter((item) =>
       item.name.toLowerCase().includes(searchValue.toLowerCase()),
     );
-  }, [category, searchValue, products]);
+  }, [category, searchValue, productsDatabase]);
 
   const handleCategory = (category: CategoryItem) => {
     setCategory(category.category);
@@ -121,7 +149,7 @@ export default function HomeScreen() {
         style={styles.flatList}
         data={filteredProducts}
         renderItem={renderProductItem}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.$id}
         numColumns={2}
         contentContainerStyle={styles.flatListContentContainer}
       />

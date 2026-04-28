@@ -1,4 +1,5 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image } from "expo-image";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Left from "../assets/images/icons/left.png";
 import Icon from "../assets/images/icons/remove.png";
 import Right from "../assets/images/icons/right.png";
@@ -12,25 +13,26 @@ export default function CartCard({ item }) {
   return (
     <View style={styles.card}>
       <View style={styles.infoContainer}>
-        <Image source={item.image} style={styles.image} />
+        <Image source={{ uri: item.image }} style={styles.image} />
         <Text style={styles.name}>{item.name}</Text>
+        <Text>{item.$id}</Text>
       </View>
       <View style={styles.quantityContainer}>
-        <TouchableOpacity onPress={() => decreaseQuantity(item.id)}>
+        <TouchableOpacity onPress={() => decreaseQuantity(item.$id)}>
           <Image source={Left} style={styles.arrow} />
         </TouchableOpacity>
         <Text style={styles.quantity}>{item.quantity}</Text>
-        <TouchableOpacity onPress={() => increaseQuantity(item.id)}>
+        <TouchableOpacity onPress={() => increaseQuantity(item.$id)}>
           <Image source={Right} style={styles.arrow} />
         </TouchableOpacity>
       </View>
       <TouchableOpacity
         style={styles.deleteButton}
-        onPress={() => removeFromCart(item.id)}
+        onPress={() => removeFromCart(item.$id)}
       >
         <Image style={styles.delete} source={Icon} />
       </TouchableOpacity>
-      <Text>{item.price}</Text>
+      <Text>$: {item.price}</Text>
     </View>
   );
 }

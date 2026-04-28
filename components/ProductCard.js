@@ -1,5 +1,6 @@
+import { Image } from "expo-image";
 import React from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import useCartStore from "../store/CartSlice";
 
 //-----------------icons
@@ -20,7 +21,7 @@ export default function ProductCard({ item }) {
 
   return (
     <View style={styles.productCard}>
-      <Image source={item.image} style={styles.productImage} />
+      <Image source={{ uri: item.image }} style={styles.productImage} />
       <View style={styles.textContainer}>
         <Text style={styles.productName} numberOfLines={2}>
           {item.name}
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
   },
   productImage: {
     margin: 5,
-    width: "100%",
+    width: 150,
     height: 150,
     resizeMode: "contain",
   },
@@ -122,5 +123,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+  },
+  idText: {
+    color: "white",
+    borderRadius: 12,
+    backgroundColor: "#969696",
   },
 });
